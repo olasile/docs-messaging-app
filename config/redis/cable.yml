@@ -1,0 +1,16 @@
+production: &production
+  :url: redis://redistogo:749965c7ebf513cda7e01f4b3622d341@lab.redistogo.com:10009/
+  :host: lab.redistogo.com
+  :port: 10009
+  :user: redistogo
+  :password: 749965c7ebf513cda7e01f4b3622d341
+  :inline: true
+  :timeout: 1
+development: &development
+  :url: redis://localhost:6379
+  :host: localhost
+  :port: 6379
+  :timeout: 1
+  :inline: true
+
+test: *development

@@ -1,0 +1,29 @@
+%h2.page-header 
+  Contacts
+  .pull-right
+    = link_to '#', class: 'btn btn-primary', data: { toggle: 'modal', target: '#ajax-modal', remote: new_contacts_files_path } do
+      = glyph(:import)
+    = link_to '#', class: 'btn btn-primary', data: { toggle: 'modal', target: '#ajax-modal', remote: new_contact_path } do
+      = glyph(:plus)
+
+
+= render 'shared/search_form', path: contacts_path, col_class: 'col-md-5', remote: false
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= check_box_tag :ids, nil, false, class: 'group-manage-all'
+        %th #
+        %th First Name
+        %th Last Name
+        %th Email
+        %th Company
+        %th Category
+        %th
+          = link_to destroy_all_contacts_path, method: :delete, remote: true, class: 'group-manage-action' do
+            = glyph(:remove)
+    %tbody#contacts
+      = render partial: 'contact', collection: @contacts, as: :contact
+
+= paginate @contacts

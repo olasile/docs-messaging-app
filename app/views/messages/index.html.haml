@@ -1,0 +1,11 @@
+.modal-body
+  %button.close{ aria_label: 'Close', type: 'button', data: { dismiss: 'modal' } }
+    %span{ aria_hidden: true } ×
+  %legend Conversation with: #{@conversation.users.where.not(id: current_user.id).map(&:email).join(', ')}
+  = render 'form' 
+  %p
+  = render 'shared/search_form', path: conversation_messages_path(@conversation), col_class: 'col-md-12', remote: true
+
+  = render 'messages', messages: @messages, conversation: @conversation, with_pager: true
+    
+

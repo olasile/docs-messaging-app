@@ -1,0 +1,8 @@
+- if user.id != current_user.id
+  %tr{ id: "user-#{user.id}" }
+    %td= user.id
+    %td= user.first_name
+    %td= user.last_name
+    %td= user.email
+    %td= user.company.name
+    %td= user.category

@@ -1,0 +1,7 @@
+= simple_form_for [@conversation, Message.new], remote: true do |f|
+  = f.input :body, as: :text, label: 'New Message'
+  = f.submit 'Send', class: 'btn btn-success'
+
+
+
+  

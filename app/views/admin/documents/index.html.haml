@@ -1,0 +1,23 @@
+%legend
+  %h2
+    Documents
+  
+= render 'shared/search_form', path: admin_documents_path, col_class: 'col-md-5', remote: false
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th Id
+      %th User
+      %th Name
+      %th Description
+      %th File name
+      %th File size
+      %th Url
+      %th Created at
+      %th
+
+  %tbody
+    = render @documents
+
+= paginate @documents

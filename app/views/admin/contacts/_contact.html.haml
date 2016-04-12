@@ -1,0 +1,9 @@
+%tr
+  %td= contact.id
+  %td= contact.first_name
+  %td= contact.last_name
+  %td= contact.email
+  %td= contact.company.name
+  %td= contact.category
+  %td 
+    = link_to 'Remove', admin_user_contact_path(@user, contact), method: :delete, class: 'btn btn-danger'

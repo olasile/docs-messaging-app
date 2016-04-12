@@ -1,0 +1,11 @@
+%tr
+  %td= document.id
+  %td= document.user.try(:email)
+  %td= document.name
+  %td= document.description
+  %td= document.file_file_name
+  %td= document.file_file_size
+  %td= document.file.url
+  %td= document.created_at.to_usa
+  %th
+    = link_to 'Delete', [:admin, document], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

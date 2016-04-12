@@ -1,0 +1,25 @@
+= simple_form_for @conversation, remote: true do |f|
+  
+  = f.input :user_ids, collection: [], input_html: { multiple: true }
+  = f.submit 'Create', class: 'btn btn-success'
+
+  :javascript
+    $('#conversation_user_ids').selectpicker({
+      liveSearch: true, 
+      liveSearchPlaceholder: 'Find...' 
+    }).ajaxSelectPicker({
+      ajax: {
+        url: '#{contacts_path}',
+        method: 'GET'
+      },
+      preprocessData: function(data) {
+        var result = []
+        
+        $.each(data, function(index, item){
+          result.push({ value: item.id, 
+                        text: item.email + ' : ' + item.first_name + ' ' + item.last_name })
+        });
+        
+        return result
+      }
+    });

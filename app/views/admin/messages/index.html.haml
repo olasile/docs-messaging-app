@@ -1,0 +1,19 @@
+%legend
+  %h2
+    Messages.
+  
+= render 'shared/search_form', path: admin_conversation_messages_path(@conversation), col_class: 'col-md-5', remote: false
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th #
+      %th Body
+      %th User
+      %th Create at
+      %th 
+
+  %tbody
+    = render @messages
+
+= paginate @messages

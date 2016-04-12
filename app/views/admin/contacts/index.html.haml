@@ -1,0 +1,21 @@
+%h2.page-header 
+  Contacts
+
+= render 'shared/search_form', path: admin_user_contacts_path(@user), col_class: 'col-md-5', remote: false
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        %th First Name
+        %th Last Name
+        %th Email
+        %th Company
+        %th Category
+        %th
+  
+    %tbody#contacts
+      = render partial: 'contact', collection: @contacts, as: :contact
+
+= paginate @contacts

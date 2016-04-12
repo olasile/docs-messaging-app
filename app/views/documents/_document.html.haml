@@ -1,0 +1,14 @@
+%tr{ id: "document-#{document.id}" }
+  %td= check_box_tag :ids, document.id, false, class: 'group-manage'
+  %td= document.id
+  %td= document.name
+  %td= document.description
+  %td= document.file_file_size
+  %td= document.file_file_name
+  %td 
+    = link_to document, method: :delete, remote: true do
+      = glyph(:remove)
+    = link_to '#', data: { toggle: 'modal', target: '#ajax-modal', remote: document_path(document) } do
+      = glyph(:search)
+    = mail_to current_user.email,  subject: 'Document Sharing', body: document.file.url do
+      = glyph(:envelope)

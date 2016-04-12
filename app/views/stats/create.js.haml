@@ -1,0 +1,7 @@
+$('#nav_unread_messages').html("#{escape_javascript(render 'navbar_unread_messages')}")
+$('#documents_count').html("#{current_user.documents.count}")
+$('#conversations_count').html("#{current_user.conversations.count}")
+$('#contacts_count').html("#{current_user.contacts.count}")
+$('#messages_count').html("#{current_user.unread_conversations.count}")
+
+window.updateMessages()

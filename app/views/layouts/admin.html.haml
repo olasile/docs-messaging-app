@@ -1,0 +1,13 @@
+!!! 5
+%html(lang="en")
+  %head
+    = render 'admin/head'
+  %body
+    = render 'admin/navbar'
+    
+    .container
+      .row
+        .col-lg-12
+          = bootstrap_flash
+          = yield
+    = render 'admin/footer'

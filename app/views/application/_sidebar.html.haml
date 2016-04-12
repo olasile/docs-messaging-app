@@ -1,0 +1,17 @@
+.col-sm-3.col-md-2.sidebar
+  %ul.nav.nav-sidebar
+    - if current_user.present?
+      = menu_item browse_path do
+        Browse
+      = menu_item conversations_path do
+        Conversations
+        %span.badge#conversations_count= current_user.conversations.count
+        
+      = menu_item contacts_path do
+        Contacts
+        %span.badge#contacts_users_count= current_user.contacts.count
+        
+      = menu_item documents_path do
+        Documents
+        %span.badge#documents_count= current_user.documents.count
+        

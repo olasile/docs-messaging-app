@@ -1,0 +1,16 @@
+.modal-body
+  %button.close{ aria_label: 'Close', type: 'button', data: { dismiss: 'modal' } }
+    %span{ aria_hidden: true } ×
+  %legend Create Document
+  = s3_uploader_form id: 's3-document-uploader', 
+                     max_file_size: 3.megabytes, 
+                     callback_url: upload_documents_url,
+                     callback_param: :file_url do
+    
+    = file_field_tag :file
+
+  %p
+  = render 'form' 
+  
+:javascript
+  $('#s3-document-uploader').S3Uploader()

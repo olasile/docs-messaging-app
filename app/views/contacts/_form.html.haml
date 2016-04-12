@@ -1,0 +1,13 @@
+= simple_form_for @user, url: contacts_path, remote: true do |f|
+  
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :zipcode
+  = f.input :email
+  = f.input :phone
+  = f.input :category
+
+  = f.submit 'Add Contact', class: 'btn btn-success'
+
+:javascript 
+  Ladda.bind('.ladda-button');

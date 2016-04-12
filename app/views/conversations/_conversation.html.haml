@@ -1,0 +1,17 @@
+
+%tr{ id: "conversation-#{conversation.id}", class: "#{conversation.unread?(current_user) ? 'info' : nil }" }
+  %td= check_box_tag :ids, conversation.id, false, class: 'group-manage'
+  %td= conversation.id
+  %td= conversation.users.where.not(id: current_user.id).map(&:email).join(', ')
+  %td= conversation.created_at
+  %td= conversation.messages_count
+  %td 
+    = link_to conversation, method: :delete, remote: true do
+      = glyph(:remove)
+      Delete
+    |
+    = link_to '#', data: { toggle: 'modal', target: '#ajax-modal', remote: conversation_messages_path(conversation) } do
+      = glyph(:envelope)
+      Open
+      
+    

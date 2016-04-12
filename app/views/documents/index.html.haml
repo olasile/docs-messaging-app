@@ -1,0 +1,25 @@
+%h2.page-header 
+  Documents
+  .pull-right
+    = link_to '#', class: 'btn btn-primary', data: { toggle: 'modal', target: '#ajax-modal', remote: new_document_path } do
+      = glyph(:plus)
+
+= render 'shared/search_form', path: documents_path, col_class: 'col-md-5', remote: false
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= check_box_tag :ids, nil, false, class: 'group-manage-all'
+        %th #
+        %th Name
+        %th Description
+        %th File Size
+        %th File Name
+        %th 
+          = link_to destroy_all_documents_path, method: :delete, remote: true, class: 'group-manage-action' do
+            = glyph(:remove)
+    %tbody#documents
+      = render @documents
+
+= paginate @documents

@@ -1,0 +1,9 @@
+- if @conversation.valid?
+  $("#conversations").prepend("#{escape_javascript(render 'conversation', conversation: @conversation)}")
+  
+  window.closeModal()
+
+  $('#conversations_count').html("#{current_user.conversations.count}")
+
+- else
+  $('form#new_conversation').replaceWith("#{escape_javascript(render 'form')}")

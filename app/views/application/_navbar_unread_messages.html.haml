@@ -1,0 +1,8 @@
+- if current_user.unread_conversations.any?
+  - current_user.unread_conversations.each do |conversation|
+    %li
+      = link_to '#', data: { toggle: 'modal', target: '#ajax-modal', remote: conversation_messages_path(conversation) } do
+        = conversation.messages.unread_for(current_user.id).last.try(:body)
+- else
+  %li
+    = link_to 'No Messages', conversations_path 

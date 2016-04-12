@@ -1,0 +1,8 @@
+%h2.page-header 
+  Browse by your location.
+  .pull-right
+    = link_to 'Start', browse_path, class: 'btn btn-primary'
+
+#results
+- if @users.present? && @users.any?
+  = render 'results'

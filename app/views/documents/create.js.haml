@@ -1,0 +1,9 @@
+- if @document.valid?
+  $("#documents").prepend("#{escape_javascript(render 'document', document: @document)}")
+  
+  window.closeModal()
+
+  $('#documents_count').html("#{current_user.documents.count}")
+
+- else
+  $('form#new_document').replaceWith("#{escape_javascript(render 'form')}")

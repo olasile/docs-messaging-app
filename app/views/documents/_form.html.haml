@@ -1,0 +1,8 @@
+= simple_form_for @document, remote: true do |f|
+  = f.input :file_url
+  = f.input :name
+  = f.input :description, as: :text
+    
+  = f.submit 'Add Document', class: 'btn btn-success'
+
+= render 'shared/upload_progress_bar'

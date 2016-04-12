@@ -1,0 +1,18 @@
+%legend
+  %h2
+    Conversations
+  
+= render 'shared/search_form', path: admin_user_conversations_path(@user), col_class: 'col-md-5', remote: false
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th #
+      %th Contacts
+      %th Started at
+      %th Messages
+
+  %tbody
+    = render @conversations
+
+= paginate @conversations

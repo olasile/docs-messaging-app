@@ -1,0 +1,16 @@
+.modal-body
+  %button.close{ aria_label: 'Close', type: 'button', data: { dismiss: 'modal' } }
+    %span{ aria_hidden: true } ×
+  %legend Document: #{@document.name}
+  %dl
+    %dt Name:
+    %dd #{@document.name}
+    %dt Description:
+    %dd #{@document.description}
+    %dt File name:
+    %dd #{@document.file_file_name}
+    %dt File size:
+    %dd #{@document.file_file_size}
+    %dt File url:
+    %dd #{@document.file.url}
+  

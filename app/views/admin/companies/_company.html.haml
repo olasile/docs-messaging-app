@@ -1,0 +1,6 @@
+%tr
+  %td= company.name
+  %td= company.created_at.to_usa
+  %td
+    = link_to 'Edit', edit_admin_company_path(company), class: 'btn btn-info'
+    = link_to 'Delete', [:admin, company], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

@@ -1,0 +1,12 @@
+- if contact.id != current_user.id
+  %tr{ id: "contact-#{contact.id}" }
+    %td= check_box_tag :ids, contact.id, false, class: 'group-manage'
+    %td= contact.id
+    %td= contact.first_name
+    %td= contact.last_name
+    %td= contact.email
+    %td= contact.company.name
+    %td= contact.category
+    %td 
+      = link_to contact_path(contact), method: :delete, remote: true do
+        = glyph(:remove)

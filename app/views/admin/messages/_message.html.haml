@@ -1,0 +1,8 @@
+%tr
+  %td= message.id
+  %td= message.body
+  %td= message.user.try(:email)
+  %td= message.created_at.to_usa
+
+  %td
+    = link_to 'Delete', [:admin, @user, @conversation, message], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'

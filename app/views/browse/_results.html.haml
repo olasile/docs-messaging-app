@@ -1,0 +1,14 @@
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        %th First Name
+        %th Last Name
+        %th Email
+        %th Company
+        %th Category
+    %tbody
+      = render partial: 'result', collection: @users, as: :user
+
+  = paginate @users

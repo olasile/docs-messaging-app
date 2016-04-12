@@ -1,0 +1,10 @@
+.media
+  %hr
+  .media-left
+    = image_tag message.user.avatar.url(:thumb), alt: message.user.full_name, class: 'media-object img-circle'
+  .media-body
+    %h4.media-heading= message.body
+    = message.user.email
+
+- message.add_to_readed(current_user.id)
+    

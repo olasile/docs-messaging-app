@@ -1,0 +1,21 @@
+%legend
+  %h2
+    Users
+    .pull-right
+      = link_to '+', new_admin_company_path, class: 'btn btn-success'
+= search_form_for @search, url: admin_companies_path, class: 'form-inline' do |f|
+  .form-group
+    = f.search_field :name_cont, class: 'form-control'
+  = f.submit "Search", class: 'btn btn-default'
+%br
+%table.table.table-hover
+  %thead
+    %tr
+      %th= sort_link(@search, :name, 'Name', default_order: :desc)
+      %th= sort_link(@search, :created_at, 'Created At', default_order: :desc)
+      %th 
+
+  %tbody
+    = render @companies
+
+= paginate @companies

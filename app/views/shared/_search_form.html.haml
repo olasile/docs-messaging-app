@@ -1,0 +1,9 @@
+.row
+  %div{ class: col_class }
+    = form_tag path, method: :get, remote: remote do  
+      .input-group
+        = text_field_tag :q, params[:q], placeholder: 'Search', class: 'form-control'
+        %span.input-group-btn
+          = submit_tag 'Go!', class: 'btn btn-default'
+      
+%p

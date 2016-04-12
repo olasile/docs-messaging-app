@@ -1,0 +1,5 @@
+- if @message.valid?
+  $("#messages").prepend("#{escape_javascript(render 'message', message: @message)}")
+  
+- else
+  $('form#new_message').replaceWith("#{escape_javascript(render 'form')}")

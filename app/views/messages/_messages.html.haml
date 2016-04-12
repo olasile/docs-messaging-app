@@ -1,0 +1,3 @@
+.media-list#messages{ class: "conversation-#{conversation.id}", data: { conversation_id: conversation.id } }
+  = render messages
+  = paginate messages, remote: true if with_pager

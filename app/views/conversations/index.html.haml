@@ -1,0 +1,22 @@
+%h2.page-header 
+  Conversations
+  .pull-right
+    = link_to '#', class: 'btn btn-primary', data: { toggle: 'modal', target: '#ajax-modal', remote: new_conversation_path } do
+      = glyph(:plus)
+
+= render 'shared/search_form', path: conversations_path, col_class: 'col-md-5', remote: true
+
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= check_box_tag :ids, nil, false, class: 'group-manage-all'
+        %th #
+        %th Contacts
+        %th Started at
+        %th Messages
+        %th 
+          = link_to destroy_all_conversations_path, method: :delete, remote: true, class: 'group-manage-action' do
+            = glyph(:remove)
+    = render 'conversations'
+      

@@ -1,0 +1,9 @@
+- if @user.valid?
+  $("#contacts").prepend("#{escape_javascript(render 'contact', contact: @user)}")
+  
+  window.closeModal()
+
+  $('#contacts_count').html("#{current_user.contacts.count}")
+
+- else
+  $('form#new_user').replaceWith("#{escape_javascript(render 'form')}")

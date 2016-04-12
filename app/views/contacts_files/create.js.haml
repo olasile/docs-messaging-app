@@ -1,0 +1,10 @@
+- if @contacts_file.new_record?
+  alert("Failed to upload contacts: #{j @contacts_file.errors.full_messages.join(', ').html_safe}");
+- else
+  - @contacts.each do |contact|
+    $("#contacts").prepend("#{escape_javascript(render 'contacts/contact', contact: contact)}")
+  
+  $('#contacts_count').html("#{current_user.contacts.count}")
+
+  window.closeModal()
+

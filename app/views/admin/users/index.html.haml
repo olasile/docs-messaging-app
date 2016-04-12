@@ -1,0 +1,25 @@
+%legend
+  %h2
+    Users
+    .pull-right
+      = link_to '+', new_admin_user_path, class: 'btn btn-success'
+
+= render 'shared/search_form', path: admin_users_path, col_class: 'col-md-5', remote: false
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th Id
+      %th Email
+      %th First name
+      %th Last name
+      %th Zip code
+      %th Company name
+      %th Admin
+      %th Created at
+      %th
+
+  %tbody
+    = render @users
+
+= paginate @users

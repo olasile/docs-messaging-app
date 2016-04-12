@@ -1,0 +1,9 @@
+%li.dropdown#messages_nav
+  %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+    = glyph(:envelope)
+    %span.badge#messages_count= current_user.unread_conversations.count
+  %ul.dropdown-menu#nav_unread_messages
+    = render 'navbar_unread_messages'
+
+    
+    
